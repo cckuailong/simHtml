@@ -1,41 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"bytes"
+	"fmt"
+	"github.com/PuerkitoBio/goquery"
+	"io/ioutil"
+)
 
-func longestCommonSubsequence(text1, text2 []string) int {
-	m, n := len(text1), len(text2)
-	up := make([]int, n+2)
-	var a, b, c, tmp, maximum int
-	for i := 1; i <= m; i++ {
-		for j := 1; j <= n; j++ {
-			if text1[i-1] == text2[j-1] {
-				tmp = a + 1
-			} else {
-				tmp = max(b, c)
-			}
-			if tmp > maximum {
-				maximum = tmp
-			}
-			c = tmp
-			a = b
-			up[j] = tmp
-			b = up[j+1]
-		}
-		a = 0
-		b = up[1]
-		c = 0
-	}
-	return maximum
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 
 func main(){
-	res := longestCommonSubsequence([]string{"aaa","bbb","ccc","dddd"}, []string{"bbb","dddd"})
-	fmt.Println(res)
+	//res := simHtml.LongestCommonSubsequence([]string{"aaa","bbb","ccc","dddd"}, []string{"bbb","dddd"})
+	exp1,_ := ioutil.ReadFile("example/data/exp1.html")
+	doc, _ := goquery.NewDocumentFromReader(bytes.NewReader(exp1))
+	doc.Each(func(i int, selection *goquery.Selection) {
+		fmt.Println(selection.)
+	})
 }
