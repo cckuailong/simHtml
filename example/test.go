@@ -2,7 +2,7 @@ package example
 
 import (
 	"fmt"
-	"simHtml/simHtml"
+	"github.com/cckuailong/simHtml"
 )
 
 func test(){

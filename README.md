@@ -36,31 +36,31 @@ Using `k=0.3` give use better results. The style similarity gives more informati
 
 ## Examples
 
-    In [1]: html_1 = '''
-    <h1 class="title">First Document</h1>
-    <ul class="menu">
-        <li class="active">Documents</li>
-        <li>Extra</li>
-    </ul>
+    In [1]: 1.html's content is
+     '''
+     <html>
+        <h1 class="title">First Document</h1>
+        <ul class="menu">
+            <li class="active">Documents</li>
+            <li>Extra</li>
+        </ul>
+     </html>
     '''
 
-    In [2]: html_2 = '''
-    <h1 class="title">Second document Document</h1>
-    <ul class="menu">
-        <li class="active">Extra Documents</li>
-    </ul>
+    In [2]: 2.html's content is
+    '''
+    <html>
+        <h1 class="title">Second document Document</h1>
+        <ul class="menu">
+            <li class="active">Extra Documents</li>
+        </ul>
+    </html>
     '''
 
-    In [3] "simHtml/simHtml"
+    In [3] import "github.com/cckuailong/simHtml/simHtml"
 
-    In [4]: style_similarity(html_1, html_2)
-    Out[4]: 1.0
-
-    In [7]: structural_similarity(html_1, html_2)
-    Out[7]: 0.9090909090909091
-
-    In [8]: similarity(html_1, html_2)
-    Out[8]: 0.9545454545454546
+    In [4]: simHtml.GetSimRate("./1.html", "./2.html")
+    Out[4]: 0.9545454545454546
 
 ### References
 

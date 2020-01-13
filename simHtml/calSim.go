@@ -30,7 +30,7 @@ func GetDomCssList(filePath string) ([]string, []string){
 		}
 		queue = append(queue, cur_sel.Children())
 	}
-	return dom_res, css_res
+	return dom_res[1:], css_res
 }
 
 func GetSimRate(file1,file2 string) float64{
