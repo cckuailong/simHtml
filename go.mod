@@ -1,4 +1,4 @@
-module simHtml
+module github/cckuailong/simHtml
 
 go 1.13
 
