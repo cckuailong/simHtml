@@ -1,6 +1,6 @@
 # HTML Similarity
 
-This package provides a set of functions to measure the similarity between web pages.
+This package provides functions to measure the similarity between web pages.
 
 ## Install
 
@@ -19,7 +19,7 @@ We not implement the similarity based on tree edit distance because it is slower
 
 ### Style Similarity
 
-Extracts css classes of each html document and calculates the jaccard similarity of the sets of classes.
+Calculates the similarity of Attributes of class and style.
 
 
 ### Joint Similarity (Structural Similarity and Style Similarity)
@@ -60,7 +60,7 @@ Using `k=0.3` give use better results. The style similarity gives more informati
     In [3] import "github.com/cckuailong/simHtml/simHtml"
 
     In [4]: simHtml.GetSimRate("./1.html", "./2.html")
-    Out[4]: 0.9545454545454546
+    Out[4]: 0.9727272727272727
 
 ### References
 

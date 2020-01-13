@@ -4,8 +4,6 @@
     <list default="true" id="e7ce983b-5510-455f-b911-33c823ae695e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/example/test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simHtml/calSim.go" beforeDir="false" afterPath="$PROJECT_DIR$/simHtml/calSim.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
