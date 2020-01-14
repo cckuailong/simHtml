@@ -2,46 +2,42 @@
 
 [![Build Status](https://travis-ci.com/cckuailong/simHtml.svg?branch=master)](https://travis-ci.com/cckuailong/simHtml)
 
-[English ReadMe](https://github.com/cckuailong/simHtml/blob/master/README.md) || 
-[中文 ReadMe](https://github.com/cckuailong/simHtml/blob/master/README_zh.md)
+[English Readme](https://github.com/cckuailong/py2so/blob/master/README.md) || 
+[中文 Readme](https://github.com/cckuailong/py2so/blob/master/README_zh.md)
 
-## Introduce
+## 介绍
 
-This package provides functions to measure the similarity between web pages.
+simHtml包提供了一些用于计算Web页面相似度的函数
 
-## Install
+## 安装
 
-The quick way::
+快速安装:
 
     go get -u github.com/cckuailong/simHtml
 
-## How it works?
+## 原理
 
-### Structural Similarity
+### 网页结构相似度
 
-Uses sequence comparison of the html tags to compute the similarity.
+使用序列比较方法（最长公共子序列）来计算dom树的相似度。
 
-We not implement the similarity based on tree edit distance because it is slower than sequence comparison.
+### 元素类型相似度
 
+计算class 和 style的相似度。
 
-### Style Similarity
+### 整合 网页结构相似度 和 元素类型相似度
 
-Calculates the similarity of Attributes of class and style.
-
-
-### Joint Similarity (Structural Similarity and Style Similarity)
-
-The joint similarity metric is calculated as::
+整合算法：
 
     k * structural_similarity(document_1, document_2) + (1 - k) * style_similarity(document_1, document_2)
 
-All the similarity metrics takes values between 0 and 1.
+相似度取值在0-1之间
 
-### Recommendations for joint similarity
+### k取值建议
 
-Using `k=0.3` give use better results. The style similarity gives more information about the similarity rather than the structural similarity.
+使用 `k=0.3` 可以获得更好的结果。 元素类型相似度 包含的信息更多，更精确。
 
-## Functions
+## 函数
 
 - GetSimFromFile(file1, file2 string) float64
 
@@ -77,6 +73,6 @@ Using `k=0.3` give use better results. The style similarity gives more informati
 
 - GetSimFromUrl(url1, url2 string) float64
 
-### References
+### 参考
 
 - html-similarity <https://github.com/matiskay/html-similarity>
