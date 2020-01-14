@@ -34,8 +34,11 @@ All the similarity metrics takes values between 0 and 1.
 
 Using `k=0.3` give use better results. The style similarity gives more information about the similarity rather than the structural similarity.
 
-## Examples
+## Functions
 
+- GetSimFromFile(file1, file2 string) float64
+
+```
     In [1]: 1.html's content is
      '''
      <html>
@@ -61,6 +64,11 @@ Using `k=0.3` give use better results. The style similarity gives more informati
 
     In [4]: simHtml.GetSimRate("./1.html", "./2.html")
     Out[4]: 0.9727272727272727
+```
+
+- GetSimFromStr(str1, str2 string) float64
+
+- GetSimFromUrl(url1, url2 string) float64
 
 ### References
 

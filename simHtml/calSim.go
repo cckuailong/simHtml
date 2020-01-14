@@ -1,18 +1,14 @@
 package simHtml
 
 import (
-	"bytes"
 	"github.com/PuerkitoBio/goquery"
-	"io/ioutil"
 	"strings"
 )
 
-func GetDomCssList(filePath string) ([]string, []string){
+func getDomCssList(doc *goquery.Document) ([]string, []string){
 	queue := []*goquery.Selection{}
 	dom_res, css_res := []string{}, []string{}
-	exp1,_ := ioutil.ReadFile(filePath)
-	doc, _ := goquery.NewDocumentFromReader(bytes.NewReader(exp1))
-	queue = append(queue, doc.Find("html"))
+	queue = append(queue, doc.Selection)
 	for len(queue) > 0{
 		cur_sel := queue[0]
 		queue = queue[1:]
@@ -33,12 +29,23 @@ func GetDomCssList(filePath string) ([]string, []string){
 	return dom_res[1:], css_res
 }
 
-func GetSimRate(file1,file2 string) float64{
-	domList1, cssList1 := GetDomCssList(file1)
-	domList2, cssList2 := GetDomCssList(file2)
+func getSimRate(doc1, doc2 *goquery.Document) float64{
+	var domRate, cssRate float64
+	domList1, cssList1 := getDomCssList(doc1)
+	domList2, cssList2 := getDomCssList(doc2)
 	domSimNum := LongestCommonSubsequence(domList1, domList2)
 	cssSimNum := LongestCommonSubsequence(cssList1, cssList2)
-	domRate := float64(2*domSimNum)/float64(len(domList1)+len(domList2))
-	cssRate := float64(2*cssSimNum)/float64(len(cssList1)+len(cssList2))
+	domLen := len(domList1)+len(domList2)
+	cssLen := len(cssList1)+len(cssList2)
+	if domLen == 0{
+		domRate = 0
+	}else{
+		domRate = float64(2*domSimNum)/float64(domLen)
+	}
+	if cssLen == 0{
+		cssRate = 0
+	}else{
+		cssRate = float64(2*cssSimNum)/float64(cssLen)
+	}
 	return 0.3*domRate + 0.7*cssRate
 }
