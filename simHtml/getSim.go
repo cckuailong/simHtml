@@ -38,11 +38,13 @@ func GetSimFromUrl(url1, url2 string) float64{
 		fmt.Println(err)
 		return 0
 	}
+	defer resp1.Body.Close()
 	resp2, err := http.Get(url2)
 	if err != nil{
 		fmt.Println(err)
 		return 0
 	}
+	defer resp2.Body.Close()
 	doc1, _ := goquery.NewDocumentFromReader(resp1.Body)
 	doc2, _ := goquery.NewDocumentFromReader(resp2.Body)
 	return getSimRate(doc1, doc2)
